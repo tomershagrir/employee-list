@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-import ModalDialog from './Signup/ModalDialog';
-import { useAuth } from '../contexts/Auth';
+import ModalDialog from './ModalDialog';
+
 
 const useStyles = makeStyles(theme => ({
 	menuButton: {
@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
 const Navbar = () => {
 	const classes = useStyles();
 	const [open, setOpen] = useState(false);
-	const { user, signOut } = useAuth();
 
 	const handleOpen = () => {
 		setOpen(true);
@@ -43,17 +42,13 @@ const Navbar = () => {
 					<MenuIcon />
 				</IconButton>
 				<Typography variant="h6" className={classes.title}>
-					Go To Tokyo
+					Employee List
 				</Typography>
-				{user ? (
-					<Button color="inherit" onClick={signOut}>
-						Sign out
-					</Button>
-				) : (
-					<Button color="inherit" onClick={handleOpen}>
-						Login
-					</Button>
-				)}
+
+				<Button color="inherit" onClick={handleOpen}>
+					Add Employee
+				</Button>
+
 			</Toolbar>
 			<ModalDialog open={open} handleClose={handleClose} />
 		</AppBar>

@@ -1,17 +1,16 @@
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
+import Employees from './components/Employees';
 import { MuiThemeProvider as ThemeProvider } from './styles/theme';
-import { AuthProvider } from './contexts/Auth';
+import { EmployeesProvider } from './contexts/EmployeesContext';
 
 const App = () => {
 	return (
 		<ThemeProvider>
-			<AuthProvider>
+			<EmployeesProvider>
 				<Navbar />
-				<Hero />
-				<Features />
-			</AuthProvider>
+				
+				<Employees />
+			</EmployeesProvider>
 		</ThemeProvider>
 	);
 };
