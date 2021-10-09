@@ -60,8 +60,8 @@ const Employees = () => {
 				{employees.filter(empl => (!statusFilter || empl.status === statusFilter)
 					&& (!nameFilter || empl.name.toLowerCase().indexOf(nameFilter.toLowerCase()) >= 0)
 				).map(empl =>
-					<Grid item xs={12} sm={4}>
-						<div className={classes.card}>
+					<Grid item xs={12} sm={4} key={empl.id}>
+						<Box className={classes.card}>
 							<Typography variant="h5" component="h3" className={classes.title}>
 								{empl.name}
 							</Typography>
@@ -69,7 +69,7 @@ const Employees = () => {
 								onChange={(status) => employeesContext.changeStatus(empl.id, status)
 								}
 							/>
-						</div>
+						</Box>
 					</Grid>
 				)}
 			</Grid>
